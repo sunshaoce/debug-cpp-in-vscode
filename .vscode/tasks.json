@@ -1,0 +1,18 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "C++ build", // Same as launch.json:"preLaunchTask"
+      "type": "cppbuild",
+      "command": "clang++", // Compiler
+      "args": [ // Args for building "program"
+        "main.cpp",
+        "-g",
+        "-o",
+        "${workspaceFolder}/m.out" // Same as launch.json:"program"
+      ]
+    }
+  ]
+}

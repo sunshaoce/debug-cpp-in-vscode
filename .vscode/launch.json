@@ -1,0 +1,51 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // ----------------- GDB ----------------------
+    // Must install "C/C++" vscode extension
+    {
+      "name": "GDB Launch", // Debug Name
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/m.out", // Same as output file in tasks.json:"args"
+      "args": [ // Args for running "program"
+        "GDB-ARG1",
+        "GDB-ARG2",
+      ],
+      "stopAtEntry": true, // Break at first line in main
+      "cwd": "${workspaceFolder}",
+      "environment": [], // Env for running "program"
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "C++ build", // Same as tasks.json:"label"
+    },
+    //
+    // ----------------- LLDB ----------------------
+    // Must install "C/C++" and "lldb-dap" vscode extensions
+    {
+      "name": "LLDB Launch",
+      "type": "lldb-dap",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "args": [ // Args for running "program"
+        "LLDB-ARG1",
+        "LLDB-ARG2",
+      ],
+      "env": [],
+      "program": "${workspaceFolder}/m.out", // Same as output file in tasks.json:"args"
+      "preLaunchTask": "C++ build", // Same as tasks.json:"label"
+    },
+  ]
+}

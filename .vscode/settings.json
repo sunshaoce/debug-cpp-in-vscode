@@ -1,0 +1,3 @@
+{
+  "lldb-dap.executable-path": "lldb-dap" // Must be set, or lldb-dap won't work
+}
