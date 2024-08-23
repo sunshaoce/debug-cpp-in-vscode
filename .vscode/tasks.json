@@ -7,7 +7,8 @@
       "label": "C++ build", // Same as launch.json:"preLaunchTask"
       "type": "cppbuild",
       "command": "clang++", // Compiler
-      "args": [ // Args for building "program"
+      "args": [
+        // Args for building "program"
         "main.cpp",
         "-g",
         "-o",
