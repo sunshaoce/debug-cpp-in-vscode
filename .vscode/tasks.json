@@ -14,6 +14,19 @@
         "-o",
         "${workspaceFolder}/m.out" // Same as launch.json:"program"
       ]
+    },
+
+    // -------------- CMAKE ---------------
+    { // Only for CMAKE Project
+      "type": "cmake",
+      "label": "CMake build",
+      "command": "build",
+      "targets": [
+        "all"
+      ],
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "CMake template build task"
     }
   ]
 }

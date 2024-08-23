@@ -33,6 +33,38 @@
       "preLaunchTask": "C++ build", // Same as tasks.json:"label"
     },
 
+    // ----------------- GDB With CMAKE ----------------------
+    // Must install "C/C++" vscode extension
+    {
+      "name": "GDB-CMAKE Launch", // Debug Name
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/m.out", // Same as output file in tasks.json:"args"
+      "args": [
+        // Args for running "program"
+        "GDB-CMAKE-ARG1",
+        "GDB-CMAKE-ARG2",
+      ],
+      "stopAtEntry": true, // Break at first line in main
+      "cwd": "${workspaceFolder}",
+      "environment": [], // Env for running "program"
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "CMake build", // Same as tasks.json:"label"
+    },
+
 
     // ----------------- LLDB ----------------------
     // Must install "C/C++" and "lldb-dap" vscode extensions
@@ -49,6 +81,23 @@
       "env": [],
       "program": "${workspaceFolder}/m.out", // Same as output file in tasks.json:"args"
       "preLaunchTask": "C++ build", // Same as tasks.json:"label"
+    },
+
+    // ----------------- LLDB With CMAKE ----------------------
+    // Must install "C/C++" and "lldb-dap" vscode extensions
+    {
+      "name": "LLDB-CMAKE Launch",
+      "type": "lldb-dap",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "args": [
+        // Args for running "program"
+        "LLDB-CMAKE-ARG1",
+        "LLDB-CMAKE-ARG2",
+      ],
+      "env": [],
+      "program": "${workspaceFolder}/build/m.out", // Same as output file in tasks.json:"args"
+      "preLaunchTask": "CMake build", // Same as tasks.json:"label"
     },
   ]
 }
